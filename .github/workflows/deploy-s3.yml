@@ -58,7 +58,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
 
   deploy:
-    needs: ci
+    needs: release
     runs-on: ubuntu-latest
     environment: Production
     steps:
