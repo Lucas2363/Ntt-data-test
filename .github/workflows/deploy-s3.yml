@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Run unit tests
+        run: npm run test
+
       - uses: actions/checkout@v3
       - run: npm i
       - run: npm run generate
@@ -32,4 +35,4 @@ jobs:
 
       - name: Copy files to the s3 website content bucket
         run:
-          aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} 
+          aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --acl public-read
