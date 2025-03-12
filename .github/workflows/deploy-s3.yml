@@ -19,12 +19,15 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Run unit tests
-        run: npm run test
-
       - uses: actions/checkout@v3
-      - run: npm i
-      - run: npm run generate
+
+      - name: Run unit tests
+        run: | 
+          npm i
+          npm run test
+      
+      - name: Generate the code 
+        run: npm generate
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
