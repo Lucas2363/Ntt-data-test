@@ -57,6 +57,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
 
+  deploy:
+    needs: ci
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - name: Baixar o artefato
+        uses: actions/download-artifact@v4
+        with:
+          name: nuxt-build
+          path: dist/
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -64,6 +75,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Copy files to the s3 website content bucket
-        run:
-          aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --acl public-read
+      - name: Copy files to the S3 website content bucket
+        run: aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --acl public-read
