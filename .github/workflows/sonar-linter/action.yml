@@ -1,0 +1,16 @@
+name: 'Sonar Linter Action'
+
+inputs:
+  sonar-token:
+    description: 'Token SonarCloud'
+    required: true
+  sonar-organization:
+    description: 'Organização SonarCloud'
+    required: true
+  sonar-project-key:
+    description: 'Key SonarCloud'
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
