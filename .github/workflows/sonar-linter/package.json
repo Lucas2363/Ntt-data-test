@@ -1,6 +1,7 @@
 {
     "name": "sonar-linter-action",
     "version": "1.0.0",
+    "type": "module",
     "description": "GitHub Action para executar linter e verificar qualidade no SonarCloud",
     "main": "index.js",
     "scripts": {
