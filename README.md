@@ -44,7 +44,7 @@ Este projeto é uma aplicação Nuxt.js, projetada para ser facilmente implantad
    ```sh
    npm run dev
    ```
-4. Acesse a aplicação em `http://localhost:3000`.
+4. Acesse a aplicação em `http://localhost:3000`
 
 ---
 
