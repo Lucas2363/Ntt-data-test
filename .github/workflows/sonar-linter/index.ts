@@ -8,13 +8,13 @@ async function run() {
     const sonarOrganization = core.getInput('sonar-organization');
     const sonarProjectKey = core.getInput('sonar-project-key');
 
-    core.info('🔍 Executando ESLint...');
+    core.info('Executando ESLint');
     await exec('npx eslint . --config .github/workflows/sonar-linter/eslint.config.js --max-warnings=0');
 
-    core.info('🚀 Instalando SonarScanner...');
+    core.info('Instalando SonarScanner');
     await exec('npm install -g sonarqube-scanner');
 
-    core.info('🚀 Rodando SonarScanner...');
+    core.info('Rodando SonarScanner');
     await exec(`sonar-scanner \
       -Dsonar.organization=${sonarOrganization} \
       -Dsonar.projectKey=${sonarProjectKey} \
@@ -22,9 +22,9 @@ async function run() {
       -Dsonar.login=${sonarToken} \
       -Dsonar.qualitygate.wait=true`);
 
-    core.info('✅ Qualidade aprovada!');
+    core.info('aprovado!');
   } catch (error) {
-    core.setFailed(`❌ Falha no processo: ${(error as Error).message}`);
+    core.setFailed(`Falha no processo: ${(error as Error).message}`);
   }
 }
 
