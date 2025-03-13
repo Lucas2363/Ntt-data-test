@@ -48,7 +48,7 @@ Este projeto é uma aplicação Nuxt.js, projetada para ser facilmente implantad
 
 ---
 
-## 🐳 Como Startar com Docker
+## Como Startar com Docker
 1. Certifique-se de ter o **Docker** instalado.
 2. Construa a imagem da aplicação:
    ```sh
