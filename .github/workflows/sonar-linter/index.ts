@@ -11,6 +11,9 @@ async function run() {
     core.info('🔍 Executando ESLint...');
     await exec('npx eslint . --config .github/workflows/sonar-linter/eslint.config.js --max-warnings=0');
 
+    core.info('🚀 Instalando SonarScanner...');
+    await exec('npm install -g sonarqube-scanner');
+
     core.info('🚀 Rodando SonarScanner...');
     await exec(`sonar-scanner \
       -Dsonar.organization=${sonarOrganization} \
