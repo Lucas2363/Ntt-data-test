@@ -35,6 +35,29 @@ jobs:
           name: nuxt-build
           path: dist/
 
+
+
+  sonar-scanner:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run SonarScanner
+        run: |
+          npx sonar-scanner \
+          -Dsonar.host.url=http://localhost \
+          -Dsonar.login=admin \
+          -Dsonar.password=admin \
+          -Dsonar.qualitygate.wait=true \
+          -Dsonar.report.export.path=sonar-report.json
+
+      - name: Upload Sonar Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonar-report
+          path: sonar-report.json
+
   release:
     needs: ci
     runs-on: ubuntu-latest
