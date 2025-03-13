@@ -45,6 +45,7 @@ jobs:
         run: | 
             npm i
             npm run build
+        working-directory: ./.github/actions/sonar-linter
 
       - name: Executar Linter e Quality Gate
         uses: ./.github/actions/sonar-linter
