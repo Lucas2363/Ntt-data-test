@@ -1,7 +1,7 @@
 <template>
 <div class="santander-main-div">
   <div class="santander-container">
-    <h1 class="santander-text">OLÁ SANTANDER</h1>
+    <h1 class="santander-text">SANTANDER</h1>
   </div>
 </div>
 </template>
