@@ -43,12 +43,12 @@ jobs:
 
       - name: Instalar dependências
         run: | 
+            cd .github/actions/sonar-linter
             npm i
             npm run build
-        working-directory: .github/actions/sonar-linter
 
       - name: Executar Linter e Quality Gate
-        uses: .github/actions/sonar-linter
+        uses: ./.github/actions/sonar-linter
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
           sonar-organization: ${{ secrets.SONAR_ORGANIZATION }}
